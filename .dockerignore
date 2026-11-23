@@ -2,3 +2,7 @@
 .dockerignore
 .env
 .env.example
+./mods/MODS_HERE
+./data/WORLD_DATA_HERE
+./icon/ICON_HERE
+./backups/BACKUPS_HERE
