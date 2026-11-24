@@ -3,3 +3,5 @@ mods/*.jar
 
 /data/*
 !/data/WORLD_DATA_HERE
+
+/backups/*.tgz

@@ -41,6 +41,8 @@ services:
       # Timezone
       TZ: ${TZ}
 
+    mem_limit: ${MEMORY_LIMIT}
+
     volumes:
       - ./data:/data
       - ./mods:/mods:ro
@@ -50,7 +52,31 @@ services:
 
     security_opt:
       - no-new-privileges:true
-
+  backups:
+    image: itzg/mc-backup
+    container_name: minecraft-backup
+    restart: unless-stopped
+    depends_on:
+      minecraft-server:
+        condition: service_healthy
+    environment:
+      RCON_HOST: minecraft-server
+      RCON_PORT: "25575" # Default port for remote console. DON'T CHANGE IT!
+      RCON_PASSWORD: ${RCON_PASSWORD}
+      BACKUP_NAME: ${BACKUP_NAME}
+      BACKUP_INTERVAL: ${BACKUP_INTERVAL}
+      INITIAL_DELAY: ${INITIAL_DELAY}
+      PRUNE_BACKUPS_DAYS: ${PRUNE_BACKUPS_DAYS}
+      # Excludes, cache, logs, temp files and mods (.jar)
+      EXCLUDES: "cache,logs,*.tmp,*.jar"
+      TZ: ${TZ}
+    volumes:
+      - ./data:/data:ro
+      - ./backups:/backups
+    networks:
+      - minecraft-network
+    security_opt:
+      - no-new-privileges:true
 networks:
   minecraft-network:
     driver: bridge
