@@ -7,35 +7,35 @@ services:
       - "${SERVER_PORT:-25565}:25565"
     environment:
       # Minecraft
-      - EULA: ${EULA}
-      - TYPE: ${TYPE}
-      - VERSION: ${VERSION}
+      EULA: ${EULA}
+      TYPE: ${TYPE}
+      VERSION: ${VERSION}
 
       # Server performance
-      - MEMORY: ${MEMORY}
-      - MAX_PLAYERS: ${MAX_PLAYERS}
-      - VIEW_DISTANCE: ${VIEW_DISTANCE}
-      - SIMULATION_DISTANCE: ${SIMULATION_DISTANCE}
+      MEMORY: ${MEMORY}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+      VIEW_DISTANCE: ${VIEW_DISTANCE}
+      SIMULATION_DISTANCE: ${SIMULATION_DISTANCE}
 
       # Game config
-      - MOTD: ${MOTD}
-      - MODE: ${MODE}
-      - DIFFICULTY: ${DIFFICULTY}
-      - PVP: ${PVP}
-      - ONLINE_MODE: ${ONLINE_MODE}
+      MOTD: ${MOTD}
+      MODE: ${MODE}
+      DIFFICULTY: ${DIFFICULTY}
+      PVP: ${PVP}
+      ONLINE_MODE: ${ONLINE_MODE}
 
       # Security
-      - ENABLE_WHITELIST: ${ENABLE_WHITELIST}
-      - ENFORCE_WHITELIST: ${ENFORCE_WHITELIST}
-      - WHITELIST: ${WHITELIST}
-      - OP: ${OP}
+      ENABLE_WHITELIST: ${ENABLE_WHITELIST}
+      ENFORCE_WHITELIST: ${ENFORCE_WHITELIST}
+      WHITELIST: ${WHITELIST}
+      OP: ${OP}
 
       # Remote console
-      - ENABLE_RCON: ${ENABLE_RCON}
-      - RCON_PASSWORD: ${RCON_PASSWORD}
+      ENABLE_RCON: ${ENABLE_RCON}
+      RCON_PASSWORD: ${RCON_PASSWORD}
 
       # Timezone
-      - TZ: ${TZ}
+      TZ: ${TZ}
 
     volumes:
       - ./data:/data
