@@ -1,6 +1,6 @@
 services:
   minecraft-server:
-    image: itzg/minecraft-server:java17
+    image: itzg/minecraft-server:java21
     container_name: minecraft-server
     restart: unless-stopped
     ports:
@@ -38,21 +38,14 @@ services:
       - TZ: ${TZ}
 
     volumes:
-      - minecraft-data:/data
-      - minecraft-mods:/mods:ro
+      - ./data:/data
+      - ./mods:/mods:ro
 
     networks:
       - minecraft-network
 
     security_opt:
       - no-new-privileges:true
-
-volumes:
-  minecraft-data:
-    name: minecraft-data
-
-  minecraft-mods:
-    name: minecraft-mods
 
 networks:
   minecraft-network:
