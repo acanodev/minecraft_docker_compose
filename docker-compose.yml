@@ -28,7 +28,7 @@ services:
       ENABLE_WHITELIST: ${ENABLE_WHITELIST}
       ENFORCE_WHITELIST: ${ENFORCE_WHITELIST}
       WHITELIST: ${WHITELIST}
-      OP: ${OP}
+      OPS: ${OPS}
 
       # Remote console
       ENABLE_RCON: ${ENABLE_RCON}
