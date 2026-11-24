@@ -41,11 +41,16 @@ services:
       # Timezone
       TZ: ${TZ}
 
+      # Icon
+      ICON: ${ICON}
+      OVERRIDE_ICON: ${OVERRIDE_ICON}
+
     mem_limit: ${MEMORY_LIMIT}
 
     volumes:
       - ./data:/data
       - ./mods:/mods:ro
+      - ./icon/icon.png:/icon/icon.png:ro
 
     networks:
       - minecraft-network
