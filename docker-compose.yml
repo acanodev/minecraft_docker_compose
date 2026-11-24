@@ -49,6 +49,13 @@ services:
 
     mem_limit: ${MEMORY_LIMIT}
 
+    healthcheck:
+      test: ["CMD", "mc-health"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 5m
+
     volumes:
       - ./data:/data
       - ./mods:/mods:ro
