@@ -30,6 +30,10 @@ services:
       WHITELIST: ${WHITELIST}
       OPS: ${OPS}
 
+      # Rewrite Whitelist and OPs file if they exist and new users added to those lists.
+      EXISTING_WHITELIST_FILE: SYNCHRONIZE
+      EXISTING_OPS_FILE: SYNCHRONIZE
+
       # Remote console
       ENABLE_RCON: ${ENABLE_RCON}
       RCON_PASSWORD: ${RCON_PASSWORD}
